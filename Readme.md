@@ -7,7 +7,7 @@ Keep in mind that if there is more than one instance of Frotz running, everythin
 
 ## Requirements
 
-The only requirement aside from this source code is Frotz, a z-machine interpreter written by Stefan Jokisch in 1995-1997. More information [here](http://frotz.sourceforge.net/).
+The only requirement aside from this source code is Frotz, a Z-Machine interpreter written by Stefan Jokisch in 1995-1997. More information [here](http://frotz.sourceforge.net/).
 
 ```bash
 $ sudo apt-get install frotz
@@ -27,3 +27,6 @@ The python code is demonstrated in mass_run.py.
 
 Games are provided in this repo, but more games are available [here](http://www.ifarchive.org/indexes/if-archiveXgamesXzcode.html).
 
+## Miscellaneous
+
+If you are the copyright holder for any of these game files and object to their distribution in this repository, e-mail the owner at daniel.ricks4 (-a-t-) gmail.com.
