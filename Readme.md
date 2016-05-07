@@ -9,17 +9,17 @@ Keep in mind that if there is more than one instance of Frotz running, everythin
 
 The only requirement aside from this source code is Frotz, a z-machine interpreter written by Stefan Jokisch in 1995-1997. More information [here](http://frotz.sourceforge.net/).
 
-'''bash
+```bash
 $ sudo apt-get install frotz
-'''
+```
 
 ## Usage
 
 This code is set up to run both from the terminal or in python. Running the following bash command from the terminal will run the commands contained in command.txt.
 
-'''bash
+```bash
 $ python TextPlayer -g zork1.z5
-'''
+```
 
 The python code is demonstrated in mass_run.py.
 
