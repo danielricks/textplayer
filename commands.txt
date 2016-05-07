@@ -1,0 +1,6 @@
+say hi
+go west
+go east
+go north
+go south
+look
