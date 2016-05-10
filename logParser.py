@@ -1,9 +1,9 @@
-import argparse
 import re
 
 class LogParser:
+
 	def __init__(self):
-		self.args = None
+		pass
 
 	# Cleans text according to regex, removes new lines/excessive spaces, returns cleaned text
 	def clean_text(self, line):
