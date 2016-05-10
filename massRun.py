@@ -2,16 +2,28 @@ import os
 from textPlayer import TextPlayer
 
 
-'''
+game_num = 0
 for game in os.listdir(os.getcwd() + '/games'):
-	print game
-	t = TextPlayer()
-	t.assign_variables(game, True)
-	t.run()
+	print game, game_num
+	t = TextPlayer(game, False)
+	start_info = t.run()
+	#print start_info
 	t.parse_and_execute_command_file('commands.txt')
+	#command_output = t.execute_command('go south')
+	#print command_output
+	#command_output = t.execute_command('go east')
+	#print command_output
+	#command_output = t.execute_command('go east')
+	#print command_output
+	#command_output = t.execute_command('go east')
+	#print command_output
+	#command_output = t.execute_command('look')
+	#print command_output
 	t.quit()
-'''
+	game_num += 1
 
+
+'''
 t = TextPlayer('zork1.z5', False)
 start_info = t.run()
 print start_info
@@ -57,4 +69,4 @@ print command_output
 command_output = t.execute_command('inventory')
 print command_output
 t.quit()
-
+'''

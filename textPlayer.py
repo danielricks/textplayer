@@ -140,7 +140,7 @@ class TextPlayer:
 	def run_bash(self, command):
 		process = subprocess.Popen(command, shell=True)
 		while process.poll() is None:
-			time.sleep(0.1)
+			time.sleep(0.00001)
 
 	# Removes a file if it exists
 	def remove_file_if_exists(self, filename):
