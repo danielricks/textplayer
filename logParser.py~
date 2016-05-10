@@ -41,7 +41,7 @@ class LogParser:
 		# Open and clean the text from game logs
 		f_text = self.open_file_and_clean(input_filename)
 
-		return self.tidy_text(f_text)
+		return f_text
 
 	# Prints the output for the input bash command to a file
 	def get_last_output(self, input_filename, command, old_output_filename, debug):
@@ -69,5 +69,5 @@ class LogParser:
 		old.write(f_text_orig)
 		old.close()
 
-		return self.tidy_text(new_text)
+		return new_text
 
