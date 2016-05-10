@@ -3,7 +3,7 @@
 
 This code provides an interface for running text-based games using Frotz.
 
-Keep in mind that if there is more than one instance of Frotz running, everything will break.
+Keep in mind that if there is more than one instance of Frotz running, there are no guarantees it will work.
 
 ## Requirements
 
@@ -15,13 +15,18 @@ $ sudo apt-get install frotz
 
 ## Usage
 
-This code is set up to run both from the terminal or in python. Running the following bash command from the terminal will run the commands contained in command.txt.
+This code is set up to run in python. Example commands are below.
 
-```bash
-$ python TextPlayer -g zork1.z5
+```python
+t = TextPlayer('zork1.z5', False)
+start_info = t.run()
+command_output = t.execute_command('go north')
+t.quit()
 ```
 
-The python code is demonstrated in mass_run.py.
+## Known Issues
+
+When the same command is sent more than 15 times in a row, output is empty until a different command is sent.
 
 ## Games
 

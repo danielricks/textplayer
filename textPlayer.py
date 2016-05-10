@@ -3,13 +3,13 @@ import time
 import os
 from logParser import LogParser
 
-# Class Summary: TextPlayer
-# Terminal: python TextPlayer -g zork1.z5
-# Methods:	assign_variables([name of the game file], [boolean for debug flag])
-#			run()
+# Class Summary: TextPlayer([name of the game file], [boolean for debug flag])
+# Methods:	run()
 # 			parse_and_execute_command_file([text file containing a list of commands])
 # 			execute_command([command string])
 #			quit()
+
+# Known issue: when you send the same command more than 15 times in a row, you stop receiving output for that command until a different command is sent.
 
 class TextPlayer:
 
@@ -43,7 +43,7 @@ class TextPlayer:
 		if self.running == False:
 			return
 
-		# Refuse to run non-"z-machine" games
+		# Refuse to run non-"Z-Machine" games
 		if not self.current_game.endswith('z5'):
 			return
 
@@ -60,13 +60,16 @@ class TextPlayer:
 			os.makedirs('log')
 
 		# Run game
-		self.run_bash('frotz games/' + self.current_game + ' < in_fifo > ' + self.game_log)
+		self.run_bash_game('frotz games/' + self.current_game + ' < in_fifo > ' + self.game_log)
 
 		# Prep the game for use (Frotz doesn't appear to load until it receives at least one command)
 		self.run_bash('echo \" \" > in_fifo')
 
+		# Clean initial game log
+		self.run_bash('strings ' + self.game_log + ' > ' + self.game_log_clean)
+
 		# Prep history comparisons
-		self.run_bash('strings ' + self.game_log + ' > ' + self.old_game_log)
+		self.run_bash('cp ' + self.game_log_clean + ' ' + self.old_game_log)
 
 		# Get game start information
 		p = LogParser()
@@ -130,9 +133,14 @@ class TextPlayer:
 			return command_output
 
 	# Runs a bash command
+	def run_bash_game(self, command):
+		process = subprocess.Popen(command, shell=True)
+
+	# Run a bash command and wait until it finishes
 	def run_bash(self, command):
 		process = subprocess.Popen(command, shell=True)
-		time.sleep(1.2)
+		while process.poll() is None:
+			time.sleep(0.1)
 
 	# Removes a file if it exists
 	def remove_file_if_exists(self, filename):
@@ -164,4 +172,5 @@ class TextPlayer:
 		self.run_bash('echo \"quit\" > in_fifo')
 		self.run_bash('echo \"y\" > in_fifo')
 		self.run_bash('echo \" \" > in_fifo')
+		self.kill()
 
