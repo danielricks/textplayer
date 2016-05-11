@@ -1,5 +1,5 @@
 
-# text-player
+# textplayer
 
 This code provides an interface for running text-based games using Frotz.
 
