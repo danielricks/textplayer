@@ -34,10 +34,6 @@ command_output = t.execute_command('go north')
 t.quit()
 ```
 
-## Known Issues
-
-When the same command is sent more than 15 times in a row, output is empty until a different command is sent.
-
 ## Games
 
 Games are provided in this repo, but more games are available [here](http://www.ifarchive.org/indexes/if-archiveXgamesXzcode.html).

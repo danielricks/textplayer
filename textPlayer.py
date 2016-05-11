@@ -35,10 +35,6 @@ class TextPlayer:
 	def run(self):
 		if self.game_loaded_properly == True:
 
-			# Create a link to dfrotz if one doesn't exist
-			#if not os.path.exists('dfrotz'):
-			#	self.create_frotz_link()
-
 			# Start the game process with both 'standard in' and 'standard out' pipes
 			self.game_process = Popen(['./frotz/dfrotz', 'games/' + self.game_filename], stdin=PIPE, stdout=PIPE, bufsize=1)
 
@@ -94,15 +90,17 @@ class TextPlayer:
 	def get_command_output(self):
 		command_output = ''
 		output_continues = True
+
+		# While there is still output in the queue
 		while (output_continues):
-			# read line without blocking
 			try: 
-				line = self.output_queue.get(timeout=.1) # or q.get_nowait()
+				line = self.output_queue.get(timeout=.1)
 			except Empty:
-				#print('output ended')
 				output_continues = False
-			else: # got line
+			else:
 				command_output += line
+
+		# Clean up the output
 		command_output = command_output.replace('\n', ' ').replace('>', ' ')
 		while '  ' in command_output:
 			command_output = command_output.replace('  ', ' ')

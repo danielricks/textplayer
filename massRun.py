@@ -1,14 +1,13 @@
 import os
 from textPlayer import TextPlayer
 
-
+# For running commands on multiple games
 game_num = 1
 for game in os.listdir(os.getcwd() + '/games'):
 	print game, game_num
 	t = TextPlayer(game, False)
 	start_info = t.run()
 	print start_info
-	#t.parse_and_execute_command_file('commands.txt')
 	command_output = t.execute_command('go west')
 	print command_output
 	command_output = t.execute_command('go east')
@@ -21,7 +20,7 @@ for game in os.listdir(os.getcwd() + '/games'):
 	print command_output
 	game_num += 1
 
-
+# For running commands on a single game
 '''
 t = TextPlayer('zork1.z5', True)
 start_info = t.run()
@@ -67,4 +66,3 @@ print command_output
 command_output = t.execute_command('inventory')
 print command_output
 '''
-
