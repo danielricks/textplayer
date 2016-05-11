@@ -10,6 +10,7 @@ from Queue import Queue, Empty
 # Methods:	run()
 # 			parse_and_execute_command_file([text file containing a list of commands])
 # 			execute_command([command string])
+#			get_score(), returns None if no score found, returns ('2', '100') if 2/100 found
 #			quit()
 
 class TextPlayer:
@@ -82,6 +83,19 @@ class TextPlayer:
 		if self.game_loaded_properly == True:
 			self.game_process.stdin.write(command + '\n')
 			return self.clean_command_output(self.get_command_output())
+
+	# Returns the current score in a game
+	def get_score(self):
+		if self.game_loaded_properly == True:
+			self.game_process.stdin.write('score\n')
+			command_output = self.get_command_output()
+			score_pattern = '[0-9]+ [\(total ]*[points ]*[out ]*of [a maximum of ]*[a possible ]*[0-9]+'
+			matchObj = re.search(score_pattern, command_output, re.M|re.I)
+			if matchObj != None:
+				score_words = matchObj.group().split(' ')
+				return score_words[0], score_words[len(score_words)-1]
+		return None
+			
 
 	# Remove score and move information from output
 	def clean_command_output(self, text):

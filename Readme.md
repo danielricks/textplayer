@@ -31,6 +31,8 @@ This code is set up to run in python. Example commands are below.
 t = TextPlayer('zork1.z5', False)
 start_info = t.run()
 command_output = t.execute_command('go north')
+if t.get_score() != None:
+    score, possible_score = t.get_score()
 t.quit()
 ```
 
