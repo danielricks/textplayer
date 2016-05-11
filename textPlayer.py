@@ -1,7 +1,4 @@
-import os
-import sys
-import signal
-import time
+import os, sys, signal, time, re
 from subprocess import PIPE, Popen
 from threading import Thread
 from Queue import Queue, Empty
@@ -84,7 +81,17 @@ class TextPlayer:
 	def execute_command(self, command):
 		if self.game_loaded_properly == True:
 			self.game_process.stdin.write(command + '\n')
-			return self.get_command_output()
+			return self.clean_command_output(self.get_command_output())
+
+	# Remove score and move information from output
+	def clean_command_output(self, text):
+		text = re.sub(r'[0-9]+/[0-9+]', '', text)
+		text = re.sub(r'Score:[ ]*[0-9]+', '', text)
+		text = re.sub(r'Moves:[ ]*[0-9]+', '', text)
+		text = re.sub(r'Turns:[ ]*[0-9]+', '', text)
+		text = re.sub(r'[0-9]+:[0-9]+ [AaPp][Mm]', '', text)
+		text = re.sub(r' [0-9]+ .', '', text) # murderer.z5
+		return text
 
 	# Grab the output from the queue
 	def get_command_output(self):
@@ -101,7 +108,7 @@ class TextPlayer:
 				command_output += line
 
 		# Clean up the output
-		command_output = command_output.replace('\n', ' ').replace('>', ' ')
+		command_output = command_output.replace('\n', ' ').replace('>', ' ').replace('<', ' ')
 		while '  ' in command_output:
 			command_output = command_output.replace('  ', ' ')
 

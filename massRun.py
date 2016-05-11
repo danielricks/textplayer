@@ -4,6 +4,7 @@ from textPlayer import TextPlayer
 # For running commands on multiple games
 game_num = 1
 for game in os.listdir(os.getcwd() + '/games'):
+	print '--------------------------------------------------'
 	print game, game_num
 	t = TextPlayer(game, False)
 	start_info = t.run()
@@ -21,8 +22,8 @@ for game in os.listdir(os.getcwd() + '/games'):
 	game_num += 1
 
 # For running commands on a single game
-'''
-t = TextPlayer('zork1.z5', True)
+
+'''t = TextPlayer('murderer.z5', True)
 start_info = t.run()
 print start_info
 command_output = t.execute_command('open mailbox')
