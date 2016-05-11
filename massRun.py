@@ -2,32 +2,30 @@ import os
 from textPlayer import TextPlayer
 
 
-game_num = 0
+game_num = 1
 for game in os.listdir(os.getcwd() + '/games'):
 	print game, game_num
 	t = TextPlayer(game, False)
 	start_info = t.run()
-	#print start_info
-	t.parse_and_execute_command_file('commands.txt')
-	#command_output = t.execute_command('go south')
-	#print command_output
-	#command_output = t.execute_command('go east')
-	#print command_output
-	#command_output = t.execute_command('go east')
-	#print command_output
-	#command_output = t.execute_command('go east')
-	#print command_output
-	#command_output = t.execute_command('look')
-	#print command_output
-	t.quit()
+	print start_info
+	#t.parse_and_execute_command_file('commands.txt')
+	command_output = t.execute_command('go west')
+	print command_output
+	command_output = t.execute_command('go east')
+	print command_output
+	command_output = t.execute_command('go east')
+	print command_output
+	command_output = t.execute_command('go east')
+	print command_output
+	command_output = t.execute_command('look')
+	print command_output
 	game_num += 1
 
 
 '''
-t = TextPlayer('zork1.z5', False)
+t = TextPlayer('zork1.z5', True)
 start_info = t.run()
 print start_info
-#t.parse_and_execute_command_file('commands.txt')
 command_output = t.execute_command('open mailbox')
 print command_output
 command_output = t.execute_command('read leaflet')
@@ -68,5 +66,5 @@ command_output = t.execute_command('look')
 print command_output
 command_output = t.execute_command('inventory')
 print command_output
-t.quit()
 '''
+
