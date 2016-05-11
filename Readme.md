@@ -21,7 +21,7 @@ $ cd frotz
 $ make dumb
 ```
 
-This code can now be used.
+TextPlayer.py can now be used.
 
 ## Usage
 
