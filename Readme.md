@@ -21,7 +21,7 @@ $ cd frotz
 $ make dumb
 ```
 
-Frotz can now be used.
+This code can now be used.
 
 ## Usage
 
