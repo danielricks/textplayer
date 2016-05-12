@@ -20,7 +20,7 @@ class TextPlayer:
 		self.game_loaded_properly = True
 
 		# Verify that specified game file exists, else limit functionality
-		if game_filename == None or not os.path.exists('games/' + game_filename):
+		if game_filename == None or not os.path.exists('textplayer/games/' + game_filename):
 			self.game_loaded_properly = False
 			print "Unrecognized game file or bad path"
 			return
@@ -34,7 +34,7 @@ class TextPlayer:
 		if self.game_loaded_properly == True:
 
 			# Start the game process with both 'standard in' and 'standard out' pipes
-			self.game_process = Popen(['./frotz/dfrotz', 'games/' + self.game_filename], stdin=PIPE, stdout=PIPE, bufsize=1)
+			self.game_process = Popen(['./textplayer/frotz/dfrotz', 'textplayer/games/' + self.game_filename], stdin=PIPE, stdout=PIPE, bufsize=1)
 
 			# Create Queue object
 			self.output_queue = Queue()
@@ -93,7 +93,7 @@ class TextPlayer:
 			matchObj = re.search(score_pattern, command_output, re.M|re.I)
 			if matchObj != None:
 				score_words = matchObj.group().split(' ')
-				return score_words[0], score_words[len(score_words)-1]
+				return int(score_words[0]), int(score_words[len(score_words)-1])
 		return None
 			
 
