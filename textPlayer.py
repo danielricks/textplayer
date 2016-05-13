@@ -1,4 +1,5 @@
 import os, sys, signal, time, re
+from signal import signal, SIGPIPE, SIG_DFL
 from subprocess import PIPE, Popen
 from threading import Thread
 from Queue import Queue, Empty
@@ -17,6 +18,7 @@ class TextPlayer:
 
 	# Initializes the class, sets variables
 	def __init__(self, game_filename, debug_flag):
+		signal(SIGPIPE, SIG_DFL)
 		self.game_loaded_properly = True
 
 		# Verify that specified game file exists, else limit functionality
