@@ -5,13 +5,7 @@ This code provides an interface for running text-based games using Frotz.
 
 ## Requirements
 
-The only requirements are Git and Frotz, a Z-Machine interpreter written by Stefan Jokisch in 1995-1997. More information [here](http://frotz.sourceforge.net/).
-
-Git can be installed using the following terminal command.
-
-```bash
-$ sudo apt-get install git
-```
+The only requirement is Frotz, a Z-Machine interpreter written by Stefan Jokisch in 1995-1997. More information [here](http://frotz.sourceforge.net/).
 
 Download this source code, then perform the following commands in the text-player folder.
 
