@@ -22,7 +22,8 @@ TextPlayer.py can now be used.
 This code is set up to run in python. Example commands are below.
 
 ```python
-t = TextPlayer('zork1.z5', False)
+import textplayer.textplayer as tp
+t = tp.TextPlayer('zork1.z5', False)
 start_info = t.run()
 command_output = t.execute_command('go north')
 if t.get_score() != None:
