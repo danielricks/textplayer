@@ -4,15 +4,16 @@ from subprocess import PIPE, Popen
 from threading import Thread
 from Queue import Queue, Empty
 
-# Currently, for games that require several clicks to get start info, it doesn't scrape everything.
-# Lost.z5 is one. The first couple commands will not produce the expected output.
+'''
+ Currently, for games that require several clicks to get start info, it doesn't scrape everything. Lost.z5 is one. The first couple commands will not produce the expected output.
 
-# Class Summary: TextPlayer([name of the game file], [boolean for debug flag])
-# Methods:	run()
-# 			parse_and_execute_command_file([text file containing a list of commands])
-# 			execute_command([command string])
-#			get_score(), returns None if no score found, returns ('2', '100') if 2/100 found
-#			quit()
+ Class Summary: TextPlayer([name of the game file], [boolean for debug flag])
+ Methods:	run()
+ 			parse_and_execute_command_file([text file containing a list of commands])
+ 			execute_command([command string])
+			get_score(), returns None if no score found, returns ('2', '100') if 2/100 found
+			quit()
+'''
 
 class TextPlayer:
 
