@@ -7,7 +7,7 @@ from Queue import Queue, Empty
 '''
  Currently, for games that require several clicks to get start info, it doesn't scrape everything. Lost.z5 is one. The first couple commands will not produce the expected output.
 
- Class Summary: TextPlayer([name of the game file], [boolean for debug flag])
+ Class Summary: TextPlayer([name of the game file])
  Methods:	run()
  			parse_and_execute_command_file([text file containing a list of commands])
  			execute_command([command string])
