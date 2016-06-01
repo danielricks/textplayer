@@ -18,7 +18,7 @@ from Queue import Queue, Empty
 class TextPlayer:
 
 	# Initializes the class, sets variables
-	def __init__(self, game_filename, debug_flag):
+	def __init__(self, game_filename):
 		signal(SIGPIPE, SIG_DFL)
 		self.game_loaded_properly = True
 
@@ -30,7 +30,7 @@ class TextPlayer:
 
 		self.game_filename = game_filename
 		self.game_log = game_filename + '_log.txt'
-		self.debug = debug_flag
+		self.debug = False
 
 	# Runs the game
 	def run(self):
