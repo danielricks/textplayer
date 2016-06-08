@@ -65,8 +65,7 @@ class TextPlayer:
 	# Run a bash command and wait until it finishes
 	def run_bash(self, command):
 		process = Popen(command, shell=True)
-		while process.poll() is None:
-			time.sleep(0.00001)
+		process.wait()
 
 	# Parses through a text list of commands (or a single command) and executes them
 	def parse_and_execute_command_file(self, input_filename):
