@@ -102,7 +102,7 @@ class TextPlayer:
 	# Remove score and move information from output
 	def clean_command_output(self, text):
 		text = re.sub(r'[0-9]+/[0-9+]', '', text)
-		text = re.sub(r'Score:[ ]*[0-9]+', '', text)
+		text = re.sub(r'Score:[ ]*[-]*[0-9]+', '', text)
 		text = re.sub(r'Moves:[ ]*[0-9]+', '', text)
 		text = re.sub(r'Turns:[ ]*[0-9]+', '', text)
 		text = re.sub(r'[0-9]+:[0-9]+ [AaPp][Mm]', '', text)
