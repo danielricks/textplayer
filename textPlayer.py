@@ -101,12 +101,11 @@ class TextPlayer:
 
 	# Remove score and move information from output
 	def clean_command_output(self, text):
-		text = re.sub(r'[0-9]+/[0-9+]', '', text)
-		text = re.sub(r'Score:[ ]*[-]*[0-9]+', '', text)
-		text = re.sub(r'Moves:[ ]*[0-9]+', '', text)
-		text = re.sub(r'Turns:[ ]*[0-9]+', '', text)
-		text = re.sub(r'[0-9]+:[0-9]+ [AaPp][Mm]', '', text)
-		text = re.sub(r' [0-9]+ .', '', text) # murderer.z5
+		regex_list = ['[0-9]+/[0-9+]', 'Score:[ ]*[-]*[0-9]+', 'Moves:[ ]*[0-9]+', 'Turns:[ ]*[0-9]+', '[0-9]+:[0-9]+ [AaPp][Mm]', ' [0-9]+ .'] # that last one is just for murderer.z5
+		for regex in regex_list:
+			matchObj = re.search(regex, text, re.M|re.I)
+			if matchObj != None:
+				text = text[matchObj.end()+1:]
 		return text
 
 	# Grab the output from the queue
