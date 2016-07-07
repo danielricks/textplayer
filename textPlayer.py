@@ -129,7 +129,9 @@ class TextPlayer:
 
 		return command_output
 
-	def quit():
-		#os.killpg(os.getpgid(self.game_process.pid), signal.SIGTERM)
+	def quit(self):
+		if self.game_loaded_properly == True:
+			self.game_process.stdin.write('quit\n')
+			self.game_process.stdin.write('y\n')
 		pass
 
