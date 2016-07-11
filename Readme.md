@@ -31,6 +31,12 @@ if t.get_score() != None:
 t.quit()
 ```
 
+To run games interactively in the terminal, run the bash command below.
+
+```bash
+$ frotz/dfrotz games/zork1.z5
+```
+
 ## Games
 
 Games are provided in this repo, but more games are available [here](http://www.ifarchive.org/indexes/if-archiveXgamesXzcode.html).

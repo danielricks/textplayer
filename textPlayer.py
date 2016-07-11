@@ -133,4 +133,6 @@ class TextPlayer:
 		if self.game_loaded_properly == True:
 			self.game_process.stdin.write('quit\n')
 			self.game_process.stdin.write('y\n')
+		if self.game_process.stdin != None:
+			self.game_process.stdin.write('n\n')
 
