@@ -31,7 +31,7 @@ if t.get_score() != None:
 t.quit()
 ```
 
-To run games interactively in the terminal, run the bash command below.
+To run games interactively in the terminal, run the bash command below in the textplayer folder.
 
 ```bash
 $ frotz/dfrotz games/zork1.z5
