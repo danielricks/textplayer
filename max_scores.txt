@@ -2,7 +2,6 @@ Advent.z5			350
 Adventureland.z5	100
 Balances.z5			51
 BrandX.z5			300
-Chaos.z5			*
 Murdac.z5			250
 Parc.z5				400
 acorncourt.z5		30
@@ -12,6 +11,7 @@ break-in.z5			150
 building.z5			250
 bunny.z5			60
 candy.z5			41
+causality.z5		*
 cavetrip.z5			500
 cheater.z5			*
 cia.z5				*
