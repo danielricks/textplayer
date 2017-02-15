@@ -116,7 +116,7 @@ class TextPlayer:
 		# While there is still output in the queue
 		while (output_continues):
 			try: 
-				line = self.output_queue.get(timeout=.1)
+				line = self.output_queue.get(timeout=.001)
 			except Empty:
 				output_continues = False
 			else:
