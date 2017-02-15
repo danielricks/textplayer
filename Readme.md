@@ -1,7 +1,7 @@
 
 # textplayer
 
-This code provides an interface for running text-based games using Frotz.
+This code provides a Python interface for running text-based games using Frotz.
 
 ## Requirements
 
@@ -19,7 +19,7 @@ TextPlayer.py can now be used.
 
 ## Usage
 
-This code is set up to run in python. Example commands are below.
+Example commands are below.
 
 ```python
 import textplayer.textplayer as tp
